@@ -4,11 +4,11 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+WORKDIR /app
 
-WORKDIR /app/test_python
-COPY . /app/test_python
+COPY . /app
 
 RUN python -m venv /env
 RUN /env/bin/pip install --upgrade pip
 
-CMD /env/bin/python /app/test_python/main.py
+CMD /env/bin/python main.py
